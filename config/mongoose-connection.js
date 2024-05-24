@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
+const config = require("config");
+
+const debug = require("debug")("development:mongoose");
 
 mongoose
-  .connect(
-    "mongodb+srv://mr_ritesh_giri:qQC3xcYsKT52qaJm@cluster0.1vljjlk.mongodb.net/snatch"
-  )
+  .connect(`${config.get("MONGODB_URI")}/scatch`)
   .then(function () {
-    console.log("Connected");
+    debug("Connected");
   })
   .catch(function (err) {
-    console.log("Error", err);
+    debug("Error", err);
   });
 
 module.exports = mongoose.connection;
