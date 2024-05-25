@@ -18,8 +18,7 @@ const ownerSchema = mongoose.Schema({
   },
 
   email: {
-    type: Email,
-    required: true,
+    type: String,
     required: [true, "can't be blank"],
   },
 
